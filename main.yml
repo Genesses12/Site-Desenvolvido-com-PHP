@@ -27,9 +27,4 @@ jobs:
         username: ${{ secrets.ftp_user }}
         password: ${{ secrets.ftp_password}}
         server-dir:public_html/Genesses12
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
-        rsync -avz --delete-after --exclude=".git" . $SSH_USERNAME@$SSH_HOST:/var/www/html/
+      
